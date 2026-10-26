@@ -2,122 +2,122 @@
 
 # LabLink
 
-[English](README.en.md) · **中文**
+**English** · [中文](README.zh-CN.md)
 
-### 面向中小企业与高校团队的产学研需求撮合原型
+### A university–industry matching prototype for SMEs and research teams
 
-**从一个技术问题，到可解释的团队匹配，再到合作讨论。**
+**From a technical problem to an explainable match—and a cooperation discussion.**
 
-[产品案例](docs/case-study.md) · [演示场景](#两个可以开始演示的场景) · [当前边界](#当前边界)
+[Product case study (中文)](docs/case-study.md) · [Demo scenarios](#two-demo-scenarios) · [Current boundaries](#current-boundaries)
 
 </div>
 
-![LabLink 双边合作路径示意，非运行截图](docs/assets/cover.svg)
+![LabLink two-sided workflow illustration, not an application screenshot](docs/assets/cover.svg)
 
-> 本仓库当前提供产品案例文档。下述功能对应本地 LabLink 原型；应用源码与可运行发布包尚未在本仓库提供。
+> This repository currently contains product case documentation. The features below refer to the local LabLink prototype; application source code and a runnable release are not yet provided here.
 
-## 它能帮企业和研究团队做什么
+## What it helps companies and research teams do
 
-“产品反复开裂，我们想找高校合作，但不知道该搜哪个学科，也不知道怎么把问题讲清楚。”
+“Our products keep cracking. We want to collaborate with a university, but we don't know which discipline to search for or how to describe the problem.”
 
-LabLink 从企业的实际问题出发，把需求拆成技术能力，展示团队研究方向与匹配解释，再把需求、应征和沟通放在同一条路径里。高校团队则从自身研究能力出发，寻找适合讨论的企业问题。
+LabLink starts with a company's practical problem, maps requirements to technical capabilities, and presents research directions with matching explanations. Requirements, applications, and communication form one journey. Research teams can approach from the other side, using their capabilities to discover relevant company problems.
 
-| 使用者要做的事 | 本地原型提供的帮助 |
+| User task | What the local prototype offers |
 | --- | --- |
-| 企业说清楚问题 | 填写背景、技术任务、企业资源、交付与验收条件 |
-| 企业寻找团队 | 查看研究方向、能力标签、论文证据与匹配说明 |
-| 团队寻找项目 | 以导师身份浏览需求、维护团队主页、记录应征 |
-| 双方保留合作上下文 | 需求关联、合作邀请、会话与本地留言 |
-| 回看已关注对象 | 收藏团队、查看我的需求与我的应征 |
+| Companies describe their problem | Background, technical tasks, company resources, deliverables, and acceptance criteria |
+| Companies find teams | Research directions, capability tags, paper references, and matching explanations |
+| Teams discover projects | A researcher view for browsing requirements, maintaining a profile, and recording applications |
+| Both sides retain context | Linked requirements, cooperation invitations, conversations, and local messages |
+| Return to promising leads | Saved teams, company requirements, and team applications |
 
 ```mermaid
 flowchart LR
-    A[企业描述技术问题] --> B[规则提取能力标签]
-    B --> C[团队检索与匹配解释]
-    C --> D[查看研究证据]
-    D --> E[收藏与合作邀请]
-    E --> F[关联需求的本地沟通]
-    G[团队维护能力主页] --> C
-    G --> H[浏览需求与应征]
+    A[Company describes a problem] --> B[Rules extract capability tags]
+    B --> C[Team search and matching explanations]
+    C --> D[Review research evidence]
+    D --> E[Save and invite]
+    E --> F[Local conversation linked to a requirement]
+    G[Team maintains its capability profile] --> C
+    G --> H[Browse requirements and apply]
     H --> F
 ```
 
-## 五个让合作更容易开始的设计
+## Five decisions that make collaboration easier to start
 
-### 01　把业务语言翻译为技术能力
+### 01 Translate business language into technical capabilities
 
-企业通常描述“开裂、误判、磨损”，高校团队通常描述“断口分析、机器视觉、寿命预测”。当前原型通过关键词规则连接两种表达，并输出技能标签与复杂度初步判断。
+Companies describe cracking, misclassification, and wear. Research teams describe fracture analysis, machine vision, and lifetime prediction. The current prototype connects these expressions with keyword rules, producing skill tags and an initial complexity indication.
 
-> **试一试：** 产品反复开裂，希望做失效分析，查清材料和工艺因素。
+> **Try it:** Describe a product that keeps cracking and needs failure analysis to investigate material and process factors.
 
-当前规则包含“裂纹／断裂／开裂／失效 → 断口分析、材料表征”等映射。它的价值是让拆解过程可见、可讨论；**当前不调用大模型，不将规则匹配描述为 AI 推理。**
+The rules include mappings such as “裂纹 / 断裂 / 开裂 / 失效” (cracks, fracture, cracking, failure) → fracture analysis and materials characterization. The goal is to make decomposition visible and discussable. **The current analyzer does not call an LLM; rule matching is not presented as AI reasoning.** Demo input should use the Chinese keywords recognized by the current rules.
 
-### 02　需求表围绕合作可行性组织
+### 02 Structure requirements around feasibility
 
-除了项目标题和领域，发布页还包含问题背景、技术任务、企业资源、合作方要求、交付与验收标准、预算、周期、地点、截止时间与可选图片。
+Beyond a title and field, the publishing form includes background, technical tasks, company resources, partner requirements, deliverables and acceptance criteria, budget, timeline, location, deadline, and optional images.
 
-这些信息帮助双方在正式接触前识别合作条件，减少只有宽泛关键词、却无法判断能否承接的情况。
+These fields help both sides identify cooperation conditions before making contact, rather than relying on broad keywords that reveal little about whether a project can be taken on.
 
-### 03　匹配解释要能回到研究证据
+### 03 Connect matching explanations to research evidence
 
-团队页展示研究方向、公开论文和来源链接，用“研究证据 → 可能讨论的企业问题”解释相关性。公开导师档案与虚构流程演示团队分别标识。
+Team pages show research directions, public papers, and source links, connecting research evidence to company problems that might be worth discussing. Public faculty profiles are distinguished from fictional workflow-demo teams.
 
-本地原型保留了 5 个公开 PI 主页案例与 5 个虚构团队。公开档案尚未由本人认领，研究相关性不代表设备可用、团队承接意愿或已建立合作。
+The local prototype contains five public principal-investigator profile examples and five fictional teams. Public profiles have not been claimed by their subjects. Research relevance does not establish available equipment, willingness to participate, or an existing partnership.
 
-![LabLink 本地原型中的公开研究档案案例](docs/assets/research-profile.png)
+![Public research profile example in the local LabLink prototype](docs/assets/research-profile.png)
 
-*本地原型实际界面，页面保留公开来源与“尚未认领”标识。仅演示研究信息的组织方式。*
+*Actual local prototype interface, retaining public-source and unclaimed-profile labels. It demonstrates how research information is organized.*
 
-### 04　企业和导师有各自的操作路径
+### 04 Give companies and researchers different journeys
 
-企业侧重点是找团队、发布需求、收藏和联系；导师侧重点是找项目、查看应征和维护能力主页。导航、搜索范围与主要操作随演示身份调整。
+Companies focus on finding teams, publishing requirements, saving candidates, and making contact. Researchers focus on finding projects, reviewing applications, and maintaining capability profiles. Navigation, search scope, and primary actions adapt to the demo role.
 
-当前身份切换保存在浏览器中，是体验入口；它不提供真实登录、多用户隔离或后端授权。
+Role switching is stored in the browser. It is an experience preview, without real authentication, multi-user isolation, or backend authorization.
 
-### 05　沟通保留需求上下文
+### 05 Keep communication connected to the requirement
 
-聊天工作区采用会话列表与记录双栏，支持会话搜索、关联需求跳转、消息草稿和快捷文本。邀请、应征、留言保存在本机 SQLite，便于连续演示。
+A two-column workspace combines a conversation list and message history, with search, requirement links, drafts, and quick text. Invitations, applications, and messages are stored in local SQLite for a continuous demonstration.
 
-**保存消息不会向真实团队发送。** 当前没有跨用户投递、在线状态或已读回执。
+**Saving a message does not send it to a real team.** Cross-user delivery, online presence, and read receipts are not implemented.
 
-## 两个可以开始演示的场景
+## Two demo scenarios
 
-### 场景 A：制造企业寻找失效分析能力
+### Scenario A: A manufacturer seeks failure-analysis expertise
 
-**输入任务：** 产品反复开裂，需要分析失效原因，并讨论材料或工艺改进方向。
+**Task:** Investigate repeated product cracking and discuss possible material or process improvements.
 
-**演示路径：** 发布需求 → 查看规则拆解 → 浏览相关团队 → 核查研究方向与论文 → 记录合作邀请。
+**Journey:** Publish a requirement → inspect rule-based decomposition → browse relevant teams → review research directions and papers → record an invitation.
 
-**观察重点：** 标签能否反映问题、匹配解释能否被理解、需求信息是否足以开始沟通。此场景用于验证流程，不代表已撮合真实项目。
+**What to observe:** Whether tags reflect the problem, matching explanations make sense, and the requirement contains enough information to begin a conversation. This validates a prototype workflow, not a completed real-world match.
 
-### 场景 B：从公开研究证据开始讨论
+### Scenario B: Start a discussion from public research evidence
 
-本地团队案例以浙江大学褚驰恒公开主页和论文为来源，展示水处理相关研究如何关联到企业提出的处理效果、工艺路线等问题。
+A local team-profile example uses Zhejiang University researcher Chiheng Chu's public profile and papers to illustrate how water-treatment research can relate to company questions about treatment performance and process options.
 
-来源入口：[浙江大学公开主页](https://person.zju.edu.cn/chihengchu)。公开研究信息仅用于产品展示，不代表本人授权入驻、合作承诺或平台已建立联系。更完整的案例说明见[产品案例](docs/case-study.md)。
+Source entry: [Zhejiang University public profile](https://person.zju.edu.cn/chihengchu). Public information is used for product demonstration; it does not imply authorized membership, a commitment to cooperate, or an established relationship. See the [product case study (中文)](docs/case-study.md) for further context.
 
-## 技术如何支撑这些体验
+## How the technology supports the experience
 
-| 模块 | 当前本地实现 |
+| Module | Current local implementation |
 | --- | --- |
-| 前端 | HTML、JavaScript 与静态资源 |
-| 服务端 | Node.js 24+，不依赖第三方 npm 包 |
-| 需求拆解 | 关键词规则与行业兜底 |
-| 记录保存 | SQLite 保存需求、收藏、应征、邀请和留言 |
-| 图片 | 本机 uploads 保存文件，数据库保存元数据 |
-| 演示身份 | 浏览器保存企业／导师切换状态 |
+| Frontend | HTML, JavaScript, and static assets |
+| Backend | Node.js 24+, without third-party npm dependencies |
+| Requirement analysis | Keyword rules and industry fallbacks |
+| Records | SQLite stores requirements, saved teams, applications, invitations, and messages |
+| Images | Local uploads store files; the database stores metadata |
+| Demo roles | Browser-persisted company/researcher role switching |
 
-## 文档与体验状态
+## Documentation and availability
 
-| 入口 | 内容 |
+| Entry | Contents |
 | --- | --- |
-| [产品案例](docs/case-study.md) | 问题、决策、拆解示例与评估计划 |
-| 当前 README | 双边流程、本地功能与公开展示边界 |
+| [Product case study (中文)](docs/case-study.md) | Problem, decisions, decomposition example, and evaluation plans |
+| This README | Two-sided workflows, local features, and public documentation scope |
 
-本仓库暂不提供克隆即运行的启动指令。公开应用版本需补充源码、脱敏演示数据和运行说明。
+There are no clone-and-run instructions for this repository yet. A public application release should include source code, sanitized demo data, and setup instructions.
 
-## 当前边界
+## Current boundaries
 
-匹配分数是原型规则，不代表合作成功率；公开论文相关性不代表团队具备产业交付能力。初始企业需求为演示材料，不是真实客户；公开档案与虚构档案均不意味着真实入驻。
+Match scores come from prototype rules, not measured probabilities of cooperation. Relevant publications do not establish a team's ability to deliver an industrial project. Initial company requirements are demo materials rather than real clients. Neither public profiles nor fictional profiles imply actual platform membership.
 
-下一步优先验证需求填写成本、候选相关性、匹配解释可理解性、合作信息缺口和双边使用意愿。语义匹配、真实身份认领、多用户通信与合作成效评估属于后续方向。尚无真实撮合率、用户规模或成交金额的实测结论。
+Next priorities are requirement-entry effort, candidate relevance, explanation clarity, missing cooperation information, and willingness on both sides to use the platform. Semantic matching, verified identities, multi-user messaging, and outcome evaluation remain future directions. No real matching conversion rate, user scale, or transaction value is reported.
